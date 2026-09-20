@@ -1,11 +1,13 @@
 """Sonoff SNZB-03PR2 - Zigbee motion sensor."""
 
-from zigpy.quirks import CustomCluster
-from zigpy.quirks.v2 import NumberDeviceClass, QuirkBuilder
-from zigpy.quirks.v2.homeassistant import LIGHT_LUX, UnitOfTime
+from zha.application.platforms.number.device_class import NumberDeviceClass
+from zha.units import LIGHT_LUX, UnitOfTime
 import zigpy.types as t
 from zigpy.zcl.clusters.measurement import OccupancySensing
 from zigpy.zcl.foundation import BaseAttributeDefs, ZCLAttributeDef
+
+from zhaquirks.builder import QuirkBuilder
+from zhaquirks.clusters import CustomCluster
 
 
 class SonoffPrivateCluster(CustomCluster):
